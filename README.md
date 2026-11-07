@@ -9,6 +9,16 @@
 
 ![折叠后：工作区紧跟在「面板列表」这一行下面](docs/folded.png)
 
+## 安装
+
+本包是 bundle 插件（`package.json` 里声明了 `dsh.bundle.patch`），整个仓库可以直接装：
+
+```bash
+pnpm dsh plugin --profile <profile> add 'github:zba0326/dsh-sidebar-panel-fold'
+```
+
+或者打开 GUI 的 **插件 → 添加插件**，把仓库地址粘进去。装完刷新窗口。
+
 ## 实现要点
 
 - 折叠只用一个属性 `data-dsh-panels-folded` 加一段包内 CSS（`nav[data-dsh-panels-folded] > *:not([data-dsh-fold-row]){display:none}`），不改 Harness 的 React 树；面板列表被 React 重建后由 `MutationObserver` 重新打标。
