@@ -1,0 +1,53 @@
+{
+  "name": "dsh-sidebar-panel-fold",
+  "version": "1.0.0",
+  "description": "侧栏面板列表的一键折叠：按 ⌥⌘P 或点面板列表顶部的「☰ 面板列表」，把「插件 … 更多」整列收起来，工作区立刻上移。One-click fold for the DeepSeek Harness sidebar panel list (Plugins … More) so the Workspaces section moves up; ⌥⌘P or the header row toggles it, state persists.",
+  "type": "module",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "web-ui",
+    "sidebar",
+    "shortcut"
+  ],
+  "homepage": "https://github.com/OWNER/dsh-sidebar-panel-fold#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/dsh-sidebar-panel-fold.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OWNER/dsh-sidebar-panel-fold/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
