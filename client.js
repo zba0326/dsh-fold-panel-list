@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: 'dsh-sidebar-panel-fold',
+  id: 'dsh-fold-panel-list',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
@@ -248,7 +248,7 @@ window.__ModuleLoader__.load({
       );
     }
 
-    const STYLE_ID = 'dsh-sidebar-panel-fold-style';
+    const STYLE_ID = 'dsh-fold-panel-list-style';
 
     const CSS = `
 nav[${FOLD_ATTR}] > *:not([data-dsh-fold-row]){display:none !important}

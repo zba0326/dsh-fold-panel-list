@@ -1,4 +1,4 @@
-# dsh-sidebar-panel-fold
+# dsh-fold-panel-list
 
 One-click fold for the DeepSeek Harness sidebar panel list.
 
@@ -14,7 +14,7 @@ One-click fold for the DeepSeek Harness sidebar panel list.
 Bundle plugin: `package.json` declares `dsh.bundle.patch`, so the whole plugin installs from the repo.
 
 ```bash
-pnpm dsh plugin --profile <profile> add 'github:zba0326/dsh-sidebar-panel-fold'
+pnpm dsh plugin --profile <profile> add 'github:zba0326/dsh-fold-panel-list'
 ```
 
 Or open the 插件 page in the GUI → 添加插件 → paste the repo URL. Restart / reload the window afterwards.

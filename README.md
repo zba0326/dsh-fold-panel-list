@@ -1,4 +1,4 @@
-# dsh-sidebar-panel-fold
+# dsh-fold-panel-list
 
 给 DeepSeek Harness Web / 桌面 UI 的侧栏加一个「折叠面板列表」的开关。
 
@@ -14,7 +14,7 @@
 本包是 bundle 插件（`package.json` 里声明了 `dsh.bundle.patch`），整个仓库可以直接装：
 
 ```bash
-pnpm dsh plugin --profile <profile> add 'github:zba0326/dsh-sidebar-panel-fold'
+pnpm dsh plugin --profile <profile> add 'github:zba0326/dsh-fold-panel-list'
 ```
 
 或者打开 GUI 的 **插件 → 添加插件**，把仓库地址粘进去。装完刷新窗口。
