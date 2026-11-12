@@ -1,6 +1,6 @@
 {
   "name": "dsh-fold-panel-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "侧栏面板列表的一键折叠：按 ⌥⌘P 或点面板列表顶部的「☰ 面板列表」，把「插件 … 更多」整列收起来，工作区立刻上移。One-click fold for the DeepSeek Harness sidebar panel list (Plugins … More) so the Workspaces section moves up; ⌥⌘P or the header row toggles it, state persists.",
   "type": "module",
   "license": "MIT",

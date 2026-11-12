@@ -80,13 +80,19 @@ window.__ModuleLoader__.load({
       return best === null ? null : best.nav;
     }
 
-    /** Keep the fold header visible when the slot wraps registrations in its own element. */
+    /**
+     * Mark the nav child that contains our toggle. The host has wrapped rows in
+     * an extra entry element since 0.2.x (nav > entry > row > glyph > slot), so
+     * climb to whatever the nav actually owns instead of assuming a button.
+     */
     function markToggleHost(nav) {
       const toggle = nav.querySelector('[data-dsh-fold-toggle]');
       if (toggle === null) return;
-      let row = toggle.parentElement;
-      while (row !== null && row !== nav && row.tagName !== 'BUTTON') row = row.parentElement;
-      if (row !== null && row !== nav) row.setAttribute('data-dsh-fold-row', '');
+      let holder = toggle;
+      while (holder.parentElement !== null && holder.parentElement !== nav) holder = holder.parentElement;
+      if (holder.parentElement === nav) holder.setAttribute('data-dsh-fold-row', '');
+      const row = toggle.parentElement === null ? null : toggle.parentElement.closest('button');
+      if (row !== null) row.setAttribute('data-dsh-fold-row', '');
     }
 
     function paint() {
@@ -101,13 +107,6 @@ window.__ModuleLoader__.load({
       if (navNode !== null && navNode.isConnected) return navNode;
       navNode = locatePanelList();
       return navNode;
-    }
-
-    function paint() {
-      const nav = resolvePanelList();
-      if (nav === null) return;
-      if (folded) nav.setAttribute(FOLD_ATTR, '');
-      else nav.removeAttribute(FOLD_ATTR);
     }
 
     function notify() {
@@ -253,7 +252,7 @@ window.__ModuleLoader__.load({
     const CSS = `
 nav[${FOLD_ATTR}] > *:not([data-dsh-fold-row]){display:none !important}
 [data-dsh-fold-row]{gap:0}
-[data-dsh-fold-row] > *:not(:has([data-dsh-fold-toggle])){display:none !important}
+[data-dsh-fold-row] button:not([data-dsh-fold-toggle]) > *:not(:has([data-dsh-fold-toggle])){display:none !important}
 .dsh-panel-fold-header{display:flex;flex:1 1 auto;align-items:center;gap:8px;width:100%;min-height:36px;box-sizing:border-box;padding:7px 9px;border:0;border-radius:12px;background:transparent;color:inherit;font:inherit;font-size:13px;text-align:left;cursor:pointer;opacity:.66}
 .dsh-panel-fold-header:hover{opacity:1;background:var(--dsw-alias-fill-secondary,rgba(127,127,127,.14))}
 .dsh-panel-fold-header:focus-visible{outline:2px solid currentColor;outline-offset:1px}
